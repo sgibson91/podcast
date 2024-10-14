@@ -1,4 +1,4 @@
 baseURL = 'https://sgibson91.github.io/podcast/'
-languageCode = 'en-us'
+languageCode = 'en-gb'
 title = 'My New Hugo Site'
 theme = 'castanet'
