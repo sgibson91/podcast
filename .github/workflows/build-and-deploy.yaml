@@ -2,12 +2,6 @@ name: Build and Deploy the website
 
 on:
   workflow_dispatch:
-    inputs:
-      deploy:
-        description: "Optionally deploy the website"
-        default: false
-        required: false
-        type: boolean
   push:
     branches:
       - main
@@ -40,7 +34,7 @@ jobs:
         run: hugo --minify --enableGitInfo
 
       - name: Deploy to GitHub Pages
-        if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || inputs.deploy == 'true'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
